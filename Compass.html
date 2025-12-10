@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compass® - Local Shoes with Unique Designs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --medium-gray: #7e7d7d;
+            --dark-gray: #888888;
+            --black: #222222;
+            --navy: #000000;
+            --accent: #000000;
+            --light-accent: #000000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 22px;
+            font-weight: 700;
+        }
+        
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--black);
+        }
+        
+        .search-container {
+            flex-grow: 1;
+            max-width: 400px;
+            margin: 0 30px;
+            position: relative;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 12px 20px;
+            padding-left: 45px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            background-color: var(--light-gray);
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: var(--accent);
+            background-color: var(--white);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--dark-gray);
+        }
+        
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            font-size: 15px;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--black);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--black);
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--dark-gray);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .btn-primary {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--navy);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        /* Product Description */
+        .product-description {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--black);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .description-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .description-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+        
+        .description-text p {
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-icon {
+            width: 24px;
+            height: 24px;
+            background-color: var(--light-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--white);
+            font-size: 12px;
+        }
+        
+        .description-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .description-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .description-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Product Gallery */
+        .product-gallery {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            background-color: var(--white);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .gallery-caption h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--black);
+        }
+        
+        .gallery-caption p {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .testimonial-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid var(--medium-gray);
+        }
+        
+        .testimonial-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-info p {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: var(--black);
+        }
+        
+        .rating {
+            color: #ffc107;
+            margin-top: 10px;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            padding: 80px 0;
+            background-color: var(--navy);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .newsletter h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--light-accent);
+        }
+        
+        .btn-newsletter {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 15px 30px;
+        }
+        
+        .btn-newsletter:hover {
+            background-color: var(--light-accent);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Live Chat */
+        .live-chat {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .chat-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--navy);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .chat-btn:hover {
+            background-color: var(--accent);
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .description-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .description-image {
+                order: -1;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                max-width: 100%;
+                margin: 20px 0 0;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 15px;
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid var(--medium-gray);
+            }
+            
+            nav.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input, .btn-newsletter {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .product-description, .product-gallery, .testimonials {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .description-text h3 {
+                font-size: 1.5rem;
+            }
+            
+            .live-chat {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .chat-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header dengan Logo, Search, dan Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <div class="brand-name">Compass®</div>
+            </div>
+            
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-box" placeholder="Search for shoes or collections..">
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#gallery" class="nav-link">Collection</a>
+                <a href="#about" class="nav-link">About Compass®</a>
+                <a href="#testimonials" class="nav-link">Testimonial</a>
+                <a href="#contact" class="nav-link">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Where Passion, Stories, and Craftmanship Collide</h1>
+            <p>Compass® was founded in 1998 in Bandung, Indonesia by Kahar Gunawan. Driven by a desire to continue his father's legacy, who founded a shoe manufacturing company in 1984, Kahar sought to build not just another factory. He aspired to create a footwear brand that excels in design and quality, while instilling a sense of pride in those who wear it.
+
+                Decades later, we remain steadfast on the same unwavering path : our vision is to be the north star for creativity, craftsmanship, and storytelling, inspiring the next generation to forge their own paths with authenticity and purpose.
+                
+                It is our mission is to champion the arts by supporting all forms of artistic endeavours, providing a platform for creators and visionaries to share their distinct voice and stories.</p>
+            <div class="hero-buttons">
+                <a href="#gallery" class="btn btn-primary">View Full Collection</a>
+                <a href="#about" class="btn btn-secondary">Learn About Our Design</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Description -->
+    <section class="product-description" id="about">
+        <div class="container">
+            <h2 class="section-title">Why Compass Shoes??</h2>
+            <div class="description-content">
+                <div class="description-text">
+                    <h3>Unique Designs that Highlight Local Identity</h3>
+                    <p>Compass shoes come with designs inspired by the rich culture of Indonesia. Every detail reflects the spirit of young people who are creative, dynamic, and proud of local products.</p>
+                    
+                    <div class="highlight">
+                        <div class="highlight-icon"><i class="fas fa-star"></i></div>
+                        <div>
+                            <h4>Premium Materials</h4>
+                            <p>Using high-quality materials that are durable and comfortable for all-day use.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight">
+                        <div class="highlight-icon"><i class="fas fa-heart"></i></div>
+                        <div>
+                            <h4>Ergonomic Design</h4>
+                            <p>Specially designed for the shape of Indonesian feet, providing optimal comfort.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight">
+                        <div class="highlight-icon"><i class="fas fa-palette"></i></div>
+                        <div>
+                            <h4>Distinctive Colors and Motifs</h4>
+                            <p>A modern color combination with a touch of simplified traditional Indonesian motifs.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Join the Compass Community</a>
+                </div>
+                
+                <div class="description-image">
+                    <img src="https://cdn.shopify.com/s/files/1/0712/0397/9503/files/Our_Story_Gazelle.jpg?v=1724307988">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Gallery -->
+    <section class="product-gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Popular Collection</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://cdn.shopify.com/s/files/1/0712/0397/9503/files/218bb79a-b8df-49ee-898f-87e70c9bb5e9.jpg?v=1723190955&width=800&height=800&crop=center">
+                    <div class="gallery-caption">
+                        <h4>Gazelle Low Series</h4>
+                        <p>The original Compass® silhouette that started it all in 1998, reimagined to blend vintage charm with modern details. The Gazelle Low is your go-to everyday footwear, featuring a low-cut design that exudes effortless style and versatility for any occasion or look.</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://cdn.shopify.com/s/files/1/0712/0397/9503/files/GazelleHiCream4.jpg?v=1723467137&width=800&height=800&crop=center" alt="Compass Urban Edition">
+                    <div class="gallery-caption">
+                        <h4>Gazelle High Series</h4>
+                        <p>Drawing inspiration from the 1950s, the Gazelle Hi takes an iconic silhouette and infuses it with a distinct Compass® touch. .</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://cdn.shopify.com/s/files/1/0712/0397/9503/files/139738c2-6193-42ca-975b-07ee912b2b89_66244c91-fdcf-4193-ae83-21961dc804c5.jpg?v=1723439378&width=800&height=800&crop=center" alt="Compass Heritage Collection">
+                    <div class="gallery-caption">
+                        <h4>Velocity Series</h4>
+                        <p>Compass® Velocity® combines vintage aesthetics with modern technology, presenting a fusion of past and present. The name Velocity® captures the essence of dynamic speed and progress, aligning with Compass®'s philosophy of empowering individuals to continuously move forward and achieve their fullest potential..</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://cdn.shopify.com/s/files/1/0712/0397/9503/files/a3cbdce6-d7d1-452d-9e07-c3184023a6ef.jpg?v=1723190557&width=800&height=800&crop=center" alt="Compass Limited Edition">
+                    <div class="gallery-caption">
+                        <h4>Retrograde Low Series</h4>
+                        <p>The Retrograde collection honors the rich heritage of Compass®, drawing inspiration from the archives of its predecessor, Gazelle®. With its timeless design, the Retrograde Low is designed to accompany you through life's milestones, becoming an essential part of your everyday style..</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://cdn.shopify.com/s/files/1/0712/0397/9503/files/d3467073-bb7d-496c-810b-754aed44d7b0.jpg?v=1723450913&width=800&height=800&crop=center" alt="Compass Limited Edition">
+                    <div class="gallery-caption">
+                        <h4>Retrograde High Series</h4>
+                        <p>The Retrograde collection honors the rich heritage of Compass®, drawing inspiration from the archives of its predecessor, Gazelle®. Every element in the Retrograde line is crafted with purpose, designed to evoke a sense of pride and connection to its storied past..</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://cdn.shopify.com/s/files/1/0712/0397/9503/files/Tribune-BlackGum2.jpg?v=1729075858&width=800&height=800&crop=center" alt="Compass Limited Edition">
+                    <div class="gallery-caption">
+                        <h4>Tribune Series</h4>
+                        <p>The Compass® Tribune draws inspiration from 'terrace culture'— a subculture that began in the football stadiums of the UK and has since evolved into a bold, irreverent style and attitude. This new silhouette captures the fiery passion and strong sense of identity that define sport supporters, making it a tribute to their spirit..</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What People Who Have Used It Say</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://i.pinimg.com/736x/67/8d/00/678d00c9cf12969e12de5f10c529aac7.jpg" alt="Customer" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Fatih Hidayah</h4>
+                            <p>University student, 18 years old</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"I really love these Compass shoes. They give Gen Z the perfect silhouette, making them look super cool!"</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://i.pinimg.com/736x/67/8d/00/678d00c9cf12969e12de5f10c529aac7.jpg" alt="Customer" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Fauzaan Aqila</h4>
+                            <p>University student, 22 years old</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"These Compass shoes are very comfortable to wear anywhere, whether you want to wear them to college or hang out, they're perfect for any occasion."</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://i.pinimg.com/736x/ed/7e/28/ed7e2842a6004eb521c4f1079f2e484e.jpg" alt="Customer" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Dika Firansyah</h4>
+                            <p>University student, 18 tahun</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"I have three pairs of Compass shoes in different styles. They are all comfortable and suitable for various occasions. A local brand with international quality!"</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="contact">
+        <div class="container">
+            <h2>Follow the Latest Developments</h2>
+            <p>Get info about the latest collections, exclusive discounts, and Compass community events delivered straight to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="btn btn-newsletter">Subscription</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Compass®</h3>
+                    <p>Local shoes with distinctive Indonesian designs for a dynamic and creative young generation.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Menu</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#gallery">Collection</a></li>
+                        <li><a href="#about">About Compass®</a></li>
+                        <li><a href="#testimonials">Testimonial</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Koleksi</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Gazelle Low Series</a></li>
+                        <li><a href="#">Gazelle High Series</a></li>
+                        <li><a href="#">Velocity Series</a></li>
+                        <li><a href="#">Retrograde Low Series</a></li>
+                        <li><a href="#">Retrograde High Series</a></li>
+                        <li><a href="#">Tribune Series</a></li>
+                        <li><a href="#">All Products</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                        <li><i class="fas fa-envelope"></i> hello@compass®.id</li>
+                        <li><i class="fas fa-phone"></i> +62 21 1234 5678</li>
+                        <li><i class="fas fa-clock"></i> Monday–Friday: 9:00 AM–5:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Compass® All rights reserved. | Proudly made in Indonesia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Live Chat -->
+    <div class="live-chat">
+        <button class="chat-btn" id="chatBtn">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // Close mobile menu if open
+                    if(mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Live Chat Button
+        const chatBtn = document.getElementById('chatBtn');
+        chatBtn.addEventListener('click', function() {
+            alert("Hello! How can we help you? The Compass® customer service team is ready to answer your questions. (This live chat feature is a simulation for website design.)");
+        });
+        
+        // Newsletter Form Submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('.newsletter-input');
+            const email = emailInput.value;
+            
+            if(email) {
+                alert(`Thank you! Email ${email} has successfully registered to receive the Compass® newsletter.`);
+                emailInput.value = '';
+            }
+        });
+        
+        // Search Box Interaction
+        const searchBox = document.querySelector('.search-box');
+        searchBox.addEventListener('keypress', function(e) {
+            if(e.key === 'Enter') {
+                const query = this.value;
+                if(query.trim()) {
+                    alert(`Mencari: "${query}". (This search feature is a simulation for website design.)`);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
